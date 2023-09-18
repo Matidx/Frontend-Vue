@@ -12,10 +12,11 @@
         const vm = Vue.createApp({
             data() {
                 return {
+                    attr: "src",
                     img:"https://images.pexels.com/photos/18056655/pexels-photo-18056655/free-photo-of-mar-oceano-nadando-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 };
             },
-            template:`<img v-bind:src="img" v-bind:alt="img">`
+            template:`<img v-bind:[attr]="img">`
         }).mount("#app");
         console.log(vm);
     </script>
