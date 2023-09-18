@@ -7,14 +7,15 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <div id="app">{{ text }}</div>
+    <div id="app"></div>
     <script>
         const vm = Vue.createApp({
             data() {
                 return {
-                    text: "Hola vue"
+                    img:"https://images.pexels.com/photos/18056655/pexels-photo-18056655/free-photo-of-mar-oceano-nadando-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 };
-            }
+            },
+            template:`<img v-bind:src="img" v-bind:alt="img">`
         }).mount("#app");
         console.log(vm);
     </script>
