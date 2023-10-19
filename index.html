@@ -16,7 +16,8 @@
             data() {
                 return {
                     text: "Puerta cerrada",
-                    open: false
+                    open: false,
+                    username: ""
                 };
             },
             //watch se utiliza para ver si hubo cambios en este caso en una variable
@@ -26,13 +27,26 @@
                     if (value) {
                         this.text = "Puerta abierta";
                     } else {
-                        this.text = "Puerta cerrada"
+                        this.text = "Puerta cerrada",
+                        this.username = ""
                     }
                 }
             },
             template: `
-            <div> {{ text }} </div>
-            <button @click= "open = !open">{{ open ? "Cerrar" : "Abrir" }}</button>
+            <div class="container">
+                <h2>{{ text }}</h2>
+                <div v-if="open">
+                    <p>Hola, {{ username }}</p>
+                </div>
+                <div v-else>
+                    <div>Username</div>
+                    <input type="text" v-model="username" />    
+                </div>
+                <button @click="open = !open">
+                    <div v-if="!open">Acceder</div>
+                    <div v-else>Salir</div>
+                </button>
+            </div>
             `
         }).mount("#app");
     </script>
