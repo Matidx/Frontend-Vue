@@ -27,11 +27,12 @@
             template: `
             <p> {{ text }}</p>
             <input type="text" 
-            v-on:input= "input"
-            v-bind:value="text"
+            @input= "input"
+            :value="text"
             />
             `
-            //defino el input de tipo texto con el evento input y uso el metodo input
+            //atributos que quiero hacer el v-bind puedo utilizar ":"
+            //eventos resumiendo el v:on utilizo "@"
 
         }).mount("#app");
     </script>
