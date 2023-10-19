@@ -17,18 +17,35 @@
                 return {
                     text: "Puerta cerrada",
                     open: false,
-                    username: ""
+                    username: "",
+                    posts: [{
+                        title: "Titulo 1",
+                        description: "p1"
+                    },
+                    {
+                        title: "Titulo 2",
+                        description: "p2"
+                    },
+                    {
+                        title: "Titulo 3",
+                        description: "p3"
+                    },
+                    {
+                        title: "Titulo 4",
+                        description: "p4"
+                    }
+                ]
                 };
             },
             //watch se utiliza para ver si hubo cambios en este caso en una variable
             //puedo saber cual fue el valor nuevo y cual fue el valor anterior
             watch: {
-                open(value){
+                open(value) {
                     if (value) {
                         this.text = "Puerta abierta";
                     } else {
                         this.text = "Puerta cerrada",
-                        this.username = ""
+                            this.username = ""
                     }
                 }
             },
@@ -37,6 +54,12 @@
                 <h2>{{ text }}</h2>
                 <div v-if="open">
                     <p>Hola, {{ username }}</p>
+                    <div  class="list">
+                    <div v-for= "item in posts" class="item" >
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
                 </div>
                 <div v-else>
                     <div>Username</div>
@@ -48,6 +71,8 @@
                 </button>
             </div>
             `
+            //puedo agregar un for con v-for="" dentro de las comillas hiria en este caso
+            //va a mostrar cada uno de los item que estan dentro de la lista "item in posts" 
         }).mount("#app");
     </script>
 </body>
