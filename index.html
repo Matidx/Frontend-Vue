@@ -15,18 +15,17 @@
             //valores que puedo acceder desde todo el componente
             data() {
                 return {
-                    text: "Hola Vue"
+                    firstName: "Matias",
+                    lastName: "Vicente",
+                    now: new Date()
                 };
             },
             template: `
-            <p> {{ text }}</p>
-            <input type="text" 
-            v-model= "text" 
-            />
+            <div> {{ firstName }} {{ lastName }}</div>
+            <div> {{ now.toLocaleDateString() }}</div>
             `
-            //v-model hace lo mismo que v:on y v:bind y le defino la variable que va a usar entre ""
-            //en este ejemplo es "text"
-
+            //firstName y lastName se visualiza con el espacio que se ve entre {{}} {{}}
+            //le doy un formato lindo a la fecha DD/MM/AAAA
         }).mount("#app");
     </script>
 </body>
