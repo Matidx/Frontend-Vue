@@ -12,13 +12,20 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    attr: "src",
-                    img:"https://images.pexels.com/photos/18056655/pexels-photo-18056655/free-photo-of-mar-oceano-nadando-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    counter: 0
                 };
             },
-            template:`<img v-bind:[attr]="img">`
+            //objeto json para llamar a metodos dentro del componente
+            methods: {
+                increment () {
+                    this.counter++;
+                }
+            },
+            template:`<button v-on:keyup="increment">{{ counter }}</button>`
+            //directiva de vue v-on (escuchar eventos) en este caso el evento click entre "" hiria la funcion en este caso increment
+            //evento v-on:keyup puedo hacer lo mismo pero con una tecla
+            
         }).mount("#app");
-        console.log(vm);
     </script>
 </body>
 </html>
