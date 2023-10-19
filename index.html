@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app"></div>
     <script>
         const vm = Vue.createApp({
+            //valores que puedo acceder desde todo el componente
             data() {
                 return {
-                    counter: 0
+                    text: "Hola Vue"
                 };
             },
-            //objeto json para llamar a metodos dentro del componente
+            //metodo que puedo utilizar dentro del componente
             methods: {
-                increment () {
-                    this.counter++;
+                input(e) {
+                    this.text = e.target.value
                 }
             },
-            template:`<button v-on:keyup="increment">{{ counter }}</button>`
-            //directiva de vue v-on (escuchar eventos) en este caso el evento click entre "" hiria la funcion en este caso increment
-            //evento v-on:keyup puedo hacer lo mismo pero con una tecla
-            
+            template: `
+            <p> {{ text }}</p>
+            <input type="text" v-on:change= "input"/>
+            `
+            //defino el input de tipo texto con el evento change y uso el metodo input
+
         }).mount("#app");
     </script>
 </body>
+
 </html>
