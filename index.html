@@ -18,21 +18,14 @@
                     text: "Hola Vue"
                 };
             },
-            //metodo que puedo utilizar dentro del componente
-            methods: {
-                input(e) {
-                    this.text = e.target.value
-                }
-            },
             template: `
             <p> {{ text }}</p>
             <input type="text" 
-            @input= "input"
-            :value="text"
+            v-model= "text" 
             />
             `
-            //atributos que quiero hacer el v-bind puedo utilizar ":"
-            //eventos resumiendo el v:on utilizo "@"
+            //v-model hace lo mismo que v:on y v:bind y le defino la variable que va a usar entre ""
+            //en este ejemplo es "text"
 
         }).mount("#app");
     </script>
