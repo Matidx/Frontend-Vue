@@ -26,9 +26,12 @@
             },
             template: `
             <p> {{ text }}</p>
-            <input type="text" v-on:change= "input"/>
+            <input type="text" 
+            v-on:input= "input"
+            v-bind:value="text"
+            />
             `
-            //defino el input de tipo texto con el evento change y uso el metodo input
+            //defino el input de tipo texto con el evento input y uso el metodo input
 
         }).mount("#app");
     </script>
