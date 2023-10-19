@@ -20,12 +20,21 @@
                     now: new Date()
                 };
             },
+            //logica de data en general que son reactivas
+            computed: {
+                fullName() {
+                    return this.firstName + " " + this.lastName;
+                },
+                today() {
+                    return this.now.toLocaleDateString();
+                }
+            },
             template: `
-            <div> {{ firstName }} {{ lastName }}</div>
-            <div> {{ now.toLocaleDateString() }}</div>
+            <div> {{ fullName }}</div>
+            <div> {{ today }}</div>
             `
-            //firstName y lastName se visualiza con el espacio que se ve entre {{}} {{}}
-            //le doy un formato lindo a la fecha DD/MM/AAAA
+            //utilizo un metodo que ocupa 2 de mis variables para agregarle logica
+            //utilizo un metodo para darle un formato lindo a la fecha DD/MM/AAAA
         }).mount("#app");
     </script>
 </body>
